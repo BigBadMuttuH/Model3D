@@ -1,5 +1,8 @@
-    package ModelElements;
+    package Stuff;
 
+    /**
+     * класс трехмерная точка
+     */
     public class Point3D {
         double x;
         double y;

@@ -1,4 +1,4 @@
-import ModelElements.Point3D;
+import Stuff.Point3D;
 
 public class Main {
     public static void main(String[] args) {
