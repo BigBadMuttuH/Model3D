@@ -1,33 +1,37 @@
 package ModelElements;
 
 
-import java.awt.Window;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * класс сцена
  */
-public class Scene {
-    public int id;
-    public PolygonalModel Models;
-    public Flash Flashes;
+public class Scene<Type1, Type2> {
+    public int Id;
+    public List<PolygonalModel> models = new ArrayList<>();
+    public List<Flash> flashes = new ArrayList<>();
+    public List<Camera> cameras = new ArrayList<>();
+
 
     /**
-     * собрать сцену методом 1
-     * @param window
-     * @return
+     * класс сцена
+     * @param polygonalModel
+     * @param camera
+     * @param flash
      */
-    public Window.Type method1(Window.Type window){
-        return window;
+    public Scene(PolygonalModel polygonalModel, Camera camera, Flash flash){
+        models.add(polygonalModel);
+        cameras.add(camera);
+        flashes.add(flash);
+        Id += 1;
+    }
+
+    public Type1 method1(Type1 t1){
+        return t1;
     };
-
-    /**
-     * собрать сцену методом 2
-     * @param windowFirst
-     * @param windowSecond
-     * @return
-     */
-    public Window.Type method2(Window.Type windowFirst, Window.Type windowSecond){
-        return windowFirst;
+    public Type2 method2(Type2 t2){
+        return t2;
     }
 
 }

@@ -7,6 +7,6 @@ public interface IModelChangedObserver {
     /**
      * обновление модели
      */
-    static void ApplyUpdateModel(){
+    static void applyUpdateModel(){
     }
 }

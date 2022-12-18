@@ -7,7 +7,5 @@ public interface IModelChanger {
     /**
      * извещение о смене модели
      */
-    static IModelChanger NotifyChange(IModelChanger sender){
-        return sender;
-    }
+    void notifyChange(IModelChanger sender);
 }

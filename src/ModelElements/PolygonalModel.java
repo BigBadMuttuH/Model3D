@@ -1,27 +1,19 @@
 package ModelElements;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * полигональная модель
  */
 public class PolygonalModel {
-    /**
-     * создать полигональную модель
-     * @param args
-     * @return
-     */
-    public List<Polygon> Polygons(Polygon[] args) {
-        return new ArrayList<Polygon>();
-    };
+    public Polygon polygons;
+    public Texture texture;
 
     /**
-     * применить текстуры
-     * @param texture
-     * @return
+     * создать модель на основе подгружаемой текстуры
+      * @param loadTexture
      */
-    public Texture texture(Texture texture){
-        return texture;
+    public PolygonalModel(Texture loadTexture){
+        polygons = new Polygon();
+        texture = loadTexture;
     }
 }

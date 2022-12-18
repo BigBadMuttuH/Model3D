@@ -1,36 +1,46 @@
 package InMemoryModel;
 
-import ModelElements.Flash;
-import ModelElements.PolygonalModel;
-import ModelElements.Scene;
-import ModelElements.Camera;
+import ModelElements.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Хранилище моделей
  */
-public class ModelStore {
-    PolygonalModel Models;
-    Scene Scene;
-    Flash Flashes;
-    Camera Cameras;
-
-    private IModelChangedObserver changedObserver;
+public class ModelStore implements IModelChanger {
+    public List<PolygonalModel> models = new ArrayList<PolygonalModel>();
+    public List<Scene> scenes = new ArrayList<Scene>();
+    public List<Flash> flashes = new ArrayList<Flash>();
+    public List<Camera> cameras = new ArrayList<Camera>();
+    private List<IModelChangedObserver> changedObservers = new ArrayList<IModelChangedObserver>();
 
     /**
-     * получить сцену по id
-     * @param mySceneId
-     * @return возвращает сцену
+     * конструктор модели в хранилище
+     * @param texture
      */
-    public Scene GetScene(int mySceneId){
-        return new Scene();
+    public ModelStore(Texture texture){
+        models.add(new PolygonalModel(texture));
+        flashes.add(new Flash());
+        cameras.add(new Camera());
+        scenes.add(new Scene(models.get(0), cameras.get(0), flashes.get(0)));
     }
 
     /**
-     * извещение о смене модели
-     * @param changer смещение
-     * @return результат смены модели
+     * интерфейс IModelChanger
+     * @param sender
      */
-    public IModelChanger NotifyChange(IModelChanger changer){
-        return changer;
+    @Override
+    public void notifyChange(IModelChanger sender){
+
+    }
+
+    /**
+     * получить сцену по ID
+     * @param sceneID
+     * @return
+     */
+    public Scene getScene(int sceneID){
+        return scenes.get(sceneID);
     }
 }
